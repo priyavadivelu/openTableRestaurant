@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import img from '../images/searchIcon.png'
 
 export default class SearchBar extends Component {
     constructor(props){
@@ -18,9 +19,11 @@ export default class SearchBar extends Component {
     render() {
         return (
             <div className="search-container">
-                <h3>Enter city name for restaurants.</h3>
-                <input type='text' id="searchBar" placeholder="Toronto" onChange={this.handleChange}/>
-                <button onClick={this.onSearchSubmit}>Submit</button>
+                <h3 id="searchTxt">Restaurants in your city</h3>
+                <div className="search-panel">
+                <input type='text' id="searchBar" placeholder="Enter city name" onChange={this.handleChange}/><br></br>
+                <img id="searchImg" src={img} onClick={this.onSearchSubmit}/>
+                </div>
             </div>
         )
     }

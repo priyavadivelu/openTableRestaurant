@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SearchBar from "./components/searchBar";
 import RestaurantList from "./components/restaurantList";
+import styles from "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -29,12 +30,12 @@ class App extends Component {
         // },
       ],
     };
-     this.baseUrl = 'https://opentable.herokuapp.com/api/restaurants?';
+    this.baseUrl = "https://opentable.herokuapp.com/api/restaurants?";
 
     this.onSearchSubmit = this.onSearchSubmit.bind(this);
     this.fetchResults = this.fetchResults.bind(this);
 
-     // default search
+    // default search
     //  this.onSearchSubmit('chicago');
   }
 
@@ -45,15 +46,16 @@ class App extends Component {
     this.fetchResults(this.url);
   }
 
-
   fetchResults(url) {
     fetch(url)
       .then((data) => data.json())
       .then((data) => {
+        console.log(data);
         this.setState((prev, props) => ({
           restaurants: data.restaurants,
         }));
       });
+      
   }
 
   // onSearchSubmit(value) {
@@ -67,9 +69,9 @@ class App extends Component {
   // }
 
   render() {
-    console.log(this.state.restaurants);
+   
     return (
-      <div>
+      <div className="App-Container">
         <SearchBar onSearchSubmit={this.onSearchSubmit} />
 
         <div className="results-content">

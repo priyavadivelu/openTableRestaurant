@@ -10,7 +10,7 @@ export default class CardInfo extends Component {
     }
     render() {
         return (
-            <div className='info'>
+            <div className='cardInfo'>
                 <div className='name'><span>Name:</span>{ this.props.restaurant.name }</div>
                 <div className='price'><span>Price:</span>${ this.props.restaurant.price }</div>
                 <div className='address'><span>Address:</span>{ this.address }</div>
